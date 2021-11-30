@@ -133,6 +133,7 @@ class Home extends Component {
 
 		let data = {};
 		data.to = order.to;
+		data.to = order.to?.length ? `To: ${order.to}` : "";
 		data.message = order.message;
 		data.expiry = order.expiry;
 
@@ -142,7 +143,7 @@ class Home extends Component {
 
 			if(order.selectedRecipient === "SomeoneElse"){
 				data.template = "HarbourLightsGift";
-				data.from = order.from;
+				data.from = order.from?.length ? `From: ${order.from}` : "";
 			} else {
 				data.template = "HarbourLightsSelf";
 			}
@@ -151,7 +152,8 @@ class Home extends Component {
 
 			if(order.selectedRecipient === "SomeoneElse"){
 				data.template = "LoveIOMGift";
-				data.from = order.from;
+				data.from = order.from?.length ? `From: ${order.from}` : "";
+
 			} else {
 				data.template = "LoveIOMSelf";
 			}
