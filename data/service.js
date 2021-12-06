@@ -4,8 +4,22 @@ import Posted from "../posted.js";
 
 const getOrders = async (supplier, apiKey) => {
 	try {
-		let giftCards = await Repository.getGiftCards(apiKey, 100, 0);
-		giftCards = giftCards.data.giftCards;
+		let giftCards = [];
+		const limit = 100;
+		let offset = 0;
+		let stop = false;
+
+		do {
+			const response = await Repository.getGiftCards(apiKey, limit, offset);
+			giftCards.push(...response.data.giftCards);
+
+			if(response.data.hasMore){
+				offset = offset + limit;
+			} else {
+				stop = true;
+			}
+		} while(!stop);
+
 		giftCards = giftCards.filter((giftCard) => {
 			return !giftCard.fulfilledOn && giftCard.postalFulfilment;
 		})
