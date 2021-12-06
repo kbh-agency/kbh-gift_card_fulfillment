@@ -194,9 +194,6 @@ class Home extends Component {
 	}
 
 	render() {
-
-		console.log(this.state.orders)
-
 		const order = this.state.orders.filter((order) => {
 			return order.id === this.state.active
 		})[0];
@@ -204,7 +201,7 @@ class Home extends Component {
 		return (
 			<div className="container">
 				<div className="orders">
-					<h1>Orders</h1>
+					<h1>Orders ({this.state.orders.length})</h1>
 					{this.state.loading && <p>Loading...</p>}
 					<div className={this.state.loading ? "loading" : ""}>
 						{this.state.orders.length ?

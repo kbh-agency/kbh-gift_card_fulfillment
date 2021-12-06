@@ -74,6 +74,8 @@ const getOrders = async (supplier, apiKey) => {
 			}
 		})
 
+		console.log(orders.length)
+
 		return orders;
 	} catch(error) {
 		throw error;
