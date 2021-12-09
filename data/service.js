@@ -40,7 +40,11 @@ const getOrders = async (supplier, apiKey) => {
 		});
 
 		orders = orders.filter((order) => {
-			return !Posted.includes(order.orderNumber);
+			if(order.supplier === "HARBOURLIGHTS"){
+				return !Posted.includes(order.orderNumber);
+			} else {
+				return true;
+			}
 		})
 
 		orders = orders.map((order) => {
@@ -73,8 +77,6 @@ const getOrders = async (supplier, apiKey) => {
 				giftCards: cards
 			}
 		})
-
-		console.log(orders.length)
 
 		return orders;
 	} catch(error) {
