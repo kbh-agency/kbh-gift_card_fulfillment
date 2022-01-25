@@ -64,7 +64,7 @@ const getOrders = async (supplier, apiKey) => {
 			const message = cards[0].message;
 			const to = cards[0].recipientName ? cards[0].recipientName : order.purchaserName;
 			const from = order.purchaserName;
-			const expiry = order.supplier === "LOVEIOM" ? "04 January 2023" : moment(giftCards[0].expiresOn).format("DD MMMM YYYY")
+			const expiry = moment(giftCards[0].expiresOn).format("DD MMMM YYYY")
 
 			return {
 				...order,
