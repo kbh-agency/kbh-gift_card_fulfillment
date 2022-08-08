@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getGiftCards = async (apiKey, limit, offset) => {
-	return await axios.get(`https://api.giftup.app/gift-cards?limit=${limit}&offset=${offset}&createdOnOrAfter=2021-12-21T00:00:01.000Z`, {
+	return await axios.get(`https://api.giftup.app/gift-cards?limit=${limit}&offset=${offset}&createdOnOrAfter=2022-05-20T00:00:01.000Z`, {
 		headers: {
 			"Authorization": `Bearer ${apiKey}`
 		}
